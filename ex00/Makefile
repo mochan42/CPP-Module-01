@@ -19,7 +19,7 @@ END_COLOR			:= \033[0;39m
 # **************************************************************************** #
 # SOURCES
 
-SRC_FILES			:=	Zombie.cpp newZombie.cpp main.cpp\
+SRC_FILES			:=	Zombie.cpp newZombie.cpp randomChump.cpp main.cpp\
 
 OBJ_FILES			:= ${SRC_FILES:.cpp=.o}
 
