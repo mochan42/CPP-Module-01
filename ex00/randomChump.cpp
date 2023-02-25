@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:06:52 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/10 18:34:06 by mochan           ###   ########.fr       */
+/*   Updated: 2023/02/25 22:10:21 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void randomChump( std::string name )
 {
-	Zombie	*newZombie;
-	newZombie->setZombieName(name);
+	Zombie	*newZombie = new Zombie(name);
 	newZombie->announce();
+	delete newZombie;
 }

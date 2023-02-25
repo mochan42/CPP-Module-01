@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:06:45 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/10 18:39:46 by mochan           ###   ########.fr       */
+/*   Updated: 2023/02/25 22:36:00 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,12 @@
 
 int	main()
 {
-	Zombie	z1;
-	Zombie	*z2;
+	Zombie	z_stack = Zombie("zombie allocated on stack");
+	Zombie* z_heap = z_heap->newZombie("zombie allocated on heap");
 	
-	z1.setZombieName("tutu");
-	z1.announce();
-	z2 = newZombie("toto");
-	z2->announce();
-	
+	z_stack.announce();
+	z_heap->announce();
+	randomChump("zombie randomly allocated on heap");
+	delete z_heap;
 	return (0);
 }
