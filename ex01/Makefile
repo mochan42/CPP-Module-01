@@ -32,6 +32,18 @@ $(NAME): $(OBJ_FILES)
 	$(CC) $(CFLAGS) $(INCS) $(OBJ_FILES) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled :)$(END_COLOR)"
 # -C	:	make option that tells make to change directory before execution.
+# only the program here is checked against the flags
+
+%.o : %.c
+	$(CC) $(CFLAGS) $(INCS) -c $< -o $@^1
+# This rule is important to make sure that each object file is checked against the flags;
+# -c	:	gcc option to compile each .c file into .o file.
+# $<	:	represents the first prerequisite of the rule (each .c file 
+#			contained in the src folder).
+# -o	:	gcc option to define the name of the program (output) file :
+#			"push_swap".
+# $@	:	represents the filename of the target of the rule, i.e. each output
+#			file which will be linked with the header file.
 
 clean:
 	$(RM) $(OBJ_FILES)
