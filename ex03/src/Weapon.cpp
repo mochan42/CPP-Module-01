@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 18:38:19 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 00:00:52 by mochan           ###   ########.fr       */
+/*   Created: 2023/02/27 17:55:25 by mochan            #+#    #+#             */
+/*   Updated: 2023/02/27 22:04:37 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.h"
-#include "HumanB.h"
 
-HumanB::HumanB()
+// Weapon::Weapon()
+// {
+// 	std::cout << "Unknown Weapon constructor executed!\n";
+// }
+
+Weapon::Weapon(const std::string initialType)
 {
-	std::cout << "HumanB constructor executed!\n";
+	// std::cout << "Defined Weapon constructor executed!\n";
+	type = initialType;
 }
 
-HumanB::~HumanB()
+Weapon::~Weapon()
 {
-	std::cout << "HumanB destructor executed!\n";
+	// std::cout << "Weapon destructor executed!\n";
 }
 
-void	HumanB::attack(Weapon weapon)
+void	Weapon::setType(const std::string newType)
 {
-	std::cout << HumanB.getName() << " attacks with their " << weapon << "\n";
+	type = newType;
+}
+
+const std::string Weapon::getType()
+{
+	return type;
 }

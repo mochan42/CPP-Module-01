@@ -6,7 +6,9 @@ NAME				:= ex03
 CC					:= c++
 CFLAGS				:= -Wall -Wextra -Werror -std=c++98
 RM					:= rm -rf
-INCS				:= -I .
+INCS				:= -I ./inc/
+SRC_DIR				:= ./src/
+OBJ_DIR				:= ./obj/
 
 # **************************************************************************** #
 # COLORS
@@ -23,23 +25,42 @@ SRC_FILES			:= Weapon.cpp HumanA.cpp HumanB.cpp main.cpp\
 
 OBJ_FILES			:= ${SRC_FILES:.cpp=.o}
 
+SRC					:= $(addprefix $(SRC_DIR), $(SRC_FILES))
+OBJ					:= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
+
 # **************************************************************************** #
 # RULES
 
 all : $(NAME)
 
-$(NAME): $(OBJ_FILES)
-	$(CC) $(CFLAGS) $(INCS) $(OBJ_FILES) -o $(NAME)
+$(NAME): $(OBJ_DIR) $(OBJ)
+	$(CC) $(CFLAGS) $(INCS) $(OBJ) -o $(NAME)
 	@echo "$(GREEN)$(NAME) compiled :)$(END_COLOR)"
 # -C	:	make option that tells make to change directory before execution.
+# only the program here is checked against the flags
+
+$(OBJ_DIR)%.o : $(SRC_DIR)%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS)
+# This rule is important to make sure that each object file is checked against the flags;
+# -c	:	gcc option to compile each .c file into .o file.
+# $<	:	represents the first prerequisite of the rule (each .c file 
+#			contained in the src folder).
+# -o	:	gcc option to define the name of the program (output) file :
+#			"push_swap".
+# $@	:	represents the filename of the target of the rule, i.e. each output
+#			file which will be linked with the header file.
+
+$(OBJ_DIR):
+	@mkdir $(OBJ_DIR)
 
 clean:
-	$(RM) $(OBJ_FILES)
+	$(RM) $(OBJ)
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(OBJ_DIR)
 
-re: fclean all
+re: fclean all$(RM) $(OBJ_DIR)
 	@echo "$(GREEN) Cleaned all and rebuild $(NAME)!$(END_COLOR)"
 
 .PHONY: all clean fclean re

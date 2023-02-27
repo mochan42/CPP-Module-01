@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:38:25 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 00:02:33 by mochan           ###   ########.fr       */
+/*   Updated: 2023/02/27 20:11:54 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 #define HUMANB_HPP
 #include <iostream>
 #include <string>
+#include "Weapon.h"
 
 class HumanB
 {
 	public:
-		HumanB();
+		HumanB(std::string setName);
 		~HumanB();
-		void	attack(Weapon weapon);
+		void		setWeapon(Weapon& setWeapon);
+		void		attack();
+		std::string	getName();
 		
 	private:
-		Weapon		weapon;
-		std::string	name;
+		Weapon		*_weapon;
+		std::string	_name;
 };
 
 #endif
