@@ -59,7 +59,7 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(OBJ_DIR)  
 
-re: fclean all $(RM) $(OBJ_DIR)
+re: fclean all
 	@echo "$(GREEN) Cleaned all and rebuild $(NAME)!$(END_COLOR)"
 
 .PHONY: all clean fclean re
