@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:24:04 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 22:09:04 by mochan           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:37:52 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,5 @@ std::string	HumanA::getName()
 
 void	HumanA::attack()
 {
-	std::cout << "\033[34m" << getName() << " attacks with their " << _weapon.getType() << "\n";
-	std::cout << "\033[0m";
+	std::cout << BLU << getName() << " attacks with their " << _weapon.getType() << D << "\n";
 }
