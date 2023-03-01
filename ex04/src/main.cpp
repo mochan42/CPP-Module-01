@@ -6,16 +6,16 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:57 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/01 18:05:19 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/01 19:32:27 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <fstream>
-#include <cstring>
+#include <sstream>
 #include <string>
 
-std::string	ft_replace(std::string& str, int start, int len, std::string new_sub_str)
+std::string	ft_replace(std::string str, int start, int len, std::string new_sub_str)
 {
 	std::string	first_sub_str = "";
 	std::string	last_sub_str = "";
@@ -50,10 +50,14 @@ int	main(int argc, char **argv)
 {
 	if (argc == 4)
 	{
-		std::string line;
-		std::string input_file_name = argv[1];
-		std::string output_file_name = input_file_name + ".replace";
-		std::ifstream input_file;
+		std::string			line;
+		std::string			input_file_name = argv[1];
+		std::string			output_file_name = input_file_name + ".replace";
+		std::ifstream		input_file;
+		std::stringstream	buffer;
+		std::string			buffer_str;
+		std::ofstream		output_file(output_file_name);
+		
 		if (strlen(argv[2]) == 0)
 		{
 			std::cout << "Error: string s1 to replace is empty.\n";
@@ -65,7 +69,6 @@ int	main(int argc, char **argv)
 			std::cout << "Error: Input file could not be opened.\n";
 			return (0);
 		}
-		std::ofstream output_file(output_file_name);
 		if (!output_file)
 		{
 			std::cout << "Error in creating : " + input_file_name << ".replace\n";
@@ -74,18 +77,17 @@ int	main(int argc, char **argv)
 		std::cout << input_file_name << ".replace created successfully!\n";
 		if (input_file && output_file)
 		{
-			while(getline(input_file, line))
+			buffer << input_file.rdbuf();
+			buffer_str = buffer.str();
+			int pos = 0;
+			int target_len = strlen(argv[2]);
+			int replace_len = strlen(argv[3]);
+			while ((pos = buffer_str.find(argv[2], pos)) != (int)std::string::npos)
 			{
-				int pos = 0;
-				int target_len = strlen(argv[2]);
-				int replace_len = strlen(argv[3]);
-				while ((pos = line.find(argv[2], pos)) != (int)std::string::npos)
-				{
-					line = ft_replace(line, pos, target_len, argv[3]);
-					pos += replace_len;
-				}
-				output_file << line << "\n";
+				buffer_str = ft_replace(buffer_str, pos, target_len, argv[3]);
+				pos += replace_len;
 			}
+			output_file << buffer_str << "\n";
 		}
 		else
 			std::cout << "Cannot read input file\n";
