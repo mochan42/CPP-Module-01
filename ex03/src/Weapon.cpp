@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 17:55:25 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 22:04:37 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/01 22:32:06 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	Weapon::setType(const std::string newType)
 	type = newType;
 }
 
-const std::string Weapon::getType()
+const std::string &Weapon::getType() const
 {
-	return type;
+	return this->type;
 }
