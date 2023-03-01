@@ -21,7 +21,7 @@ END_COLOR			:= \033[0;39m
 # **************************************************************************** #
 # SOURCES
 
-SRC_FILES			:= harl.cpp main.cpp\
+SRC_FILES			:= Harl.cpp main.cpp\
 
 OBJ_FILES			:= ${SRC_FILES:.cpp=.o}
 

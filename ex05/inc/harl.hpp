@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   harl.hpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/28 22:05:14 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/28 22:08:57 by mochan           ###   ########.fr       */
+/*   Created: 2023/03/01 16:31:01 by mochan            #+#    #+#             */
+/*   Updated: 2023/03/01 18:16:24 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HARL_H
-#define HARL_H
+#ifndef HARL_HPP
+#define HARL_HPP
+#include <iostream>
+#include <string>
 
+class Harl
+{
+	public:
+		Harl();
+		~Harl();
+		void	complain (std::string level);
+		void	debug( void );
+		void	info ( void );
+		void	warning ( void );
+		void	error ( void );
 
-
+	private:
+};
 
 #endif
