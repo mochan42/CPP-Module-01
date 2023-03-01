@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:07:01 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 23:41:22 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/01 22:16:20 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,12 @@
 class Zombie
 {
 	public:
-		Zombie(std::string setName);
+		Zombie();
 		~Zombie();
 		std::string	getZombieName();
 		void		announce(void);
 		void		randomChump( std::string name );
+		void		setZombieName(std::string setName);
 		
 	private:
 		std::string	_name;
