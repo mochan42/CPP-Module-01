@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:57 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/28 21:55:45 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/01 18:05:19 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,11 @@ int	main(int argc, char **argv)
 		std::string input_file_name = argv[1];
 		std::string output_file_name = input_file_name + ".replace";
 		std::ifstream input_file;
+		if (strlen(argv[2]) == 0)
+		{
+			std::cout << "Error: string s1 to replace is empty.\n";
+			return (0);
+		}
 		input_file.open(input_file_name);
 		if (!input_file)
 		{
