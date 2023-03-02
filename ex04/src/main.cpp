@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:57 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/01 19:32:27 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:54:19 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <cstring>
 
 std::string	ft_replace(std::string str, int start, int len, std::string new_sub_str)
 {
