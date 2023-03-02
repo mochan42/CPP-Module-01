@@ -6,13 +6,14 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 16:28:04 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/01 18:47:41 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:54:32 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef HARL_H
 #define HARL_H
 #include "Harl.hpp"
+#include <cstring>
 
 // *** COLORS ***//
 # define BLANK "\e[0m"
