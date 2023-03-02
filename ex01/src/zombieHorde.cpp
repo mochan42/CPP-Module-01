@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 22:52:19 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 22:38:14 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:53:03 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ Zombie*	zombieHorde( int N, std::string name )
 
 	for (int i = 0; i < N; i++)
 	{
-		horde[i].setZombieName(name + std::to_string(i+1));
+		char number = (i + 1) + 48;
+		horde[i].setZombieName(name + number);
 	}
 	return horde;
 }
