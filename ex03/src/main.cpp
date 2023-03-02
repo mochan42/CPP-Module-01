@@ -6,14 +6,12 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:35:43 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 00:00:57 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 20:20:54 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.h"
 #include "HumanB.h"
-#include <iostream>
-#include <string>
 
 int	main()
 {

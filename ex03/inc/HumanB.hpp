@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:38:25 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 20:11:54 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:54:04 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define HUMANB_HPP
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "Weapon.h"
 
 class HumanB

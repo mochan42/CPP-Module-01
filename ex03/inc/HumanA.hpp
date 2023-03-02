@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:38:17 by mochan            #+#    #+#             */
-/*   Updated: 2023/02/27 20:19:21 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:53:57 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <string>
+#include <cstring>
 #include "Weapon.h"
 
 class HumanA
