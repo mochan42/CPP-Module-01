@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 19:07:01 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/01 22:16:20 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/02 19:53:28 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ZOMBIE_HPP
 #include <iostream>
 #include <string>
+#include <cstring>
 
 class Zombie
 {
