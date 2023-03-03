@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:57 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/03 20:43:30 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/03 21:12:59 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@
 #include <string>
 #include <cstring>
 
-std::string	ft_replace(std::string str, int start, int len, std::string new_sub_str)
+std::string	ft_replace(std::string str, int start, int len, std::string newSubStr)
 {
-	std::string	first_sub_str = "";
-	std::string	last_sub_str = "";
-	std::string	replaced_str = "";
-	int len_str = str.length();
-	int len_first_sub_str = start;
-	int len_last_sub_str = len_str - (len_first_sub_str + len);
+	std::string	firstSubStr = "";
+	std::string	lastSubStr = "";
+	std::string	replacedStr = "";
+	int lenStr = str.length();
+	int lenFirstSubStr = start;
+	int lenLastSubStr = lenStr - (lenFirstSubStr + len);
 	int i = 0;
 	int j = 0;
 
-	first_sub_str.resize(len_first_sub_str);
-	last_sub_str.resize(len_last_sub_str);
-	while (i < len_first_sub_str)
+	firstSubStr.resize(lenFirstSubStr);
+	lastSubStr.resize(lenLastSubStr);
+	while (i < lenFirstSubStr)
 	{
-		first_sub_str[j] = str[i];
+		firstSubStr[j] = str[i];
 		i++;
 		j++;
 	}
 	i = start + len;
 	j = 0;
-	while (i < len_str)
+	while (i < lenStr)
 	{
-		last_sub_str[j] = str[i];
+		lastSubStr[j] = str[i];
 		i++;
 		j++;
 	}
-	replaced_str = first_sub_str + new_sub_str + last_sub_str;
-	return(replaced_str);
+	replacedStr = firstSubStr + newSubStr + lastSubStr;
+	return(replacedStr);
 }
 
 int	main(int argc, char **argv)
@@ -52,49 +52,49 @@ int	main(int argc, char **argv)
 	if (argc == 4)
 	{
 		std::string			line;
-		std::string			input_file_name = argv[1];
-		std::string			output_file_name = input_file_name + ".replace";
-		std::ifstream		input_file;
+		std::string			inputFileName = argv[1];
+		std::string			outputFileName = inputFileName + ".replace";
+		std::ifstream		inputFile;
 		std::stringstream	buffer;
-		std::string			buffer_str;
-		std::ofstream		output_file;
+		std::string			bufferStr;
+		std::ofstream		outputFile;
 		
 		if (strlen(argv[2]) == 0)
 		{
 			std::cout << "Error: string s1 to replace is empty.\n";
 			return (0);
 		}
-		input_file.open(input_file_name.c_str());
-		if (!input_file)
+		inputFile.open(inputFileName.c_str());
+		if (!inputFile)
 		{
 			std::cout << "Error: Input file could not be opened.\n";
 			return (0);
 		}
-		output_file.open(output_file_name.c_str());
-		if (!output_file)
+		outputFile.open(outputFileName.c_str());
+		if (!outputFile)
 		{
-			std::cout << "Error in creating : " + input_file_name << ".replace\n";
+			std::cout << "Error in creating : " + inputFileName << ".replace\n";
 			return (0);
 		}
-		std::cout << input_file_name << ".replace created successfully!\n";
-		if (input_file && output_file)
+		std::cout << inputFileName << ".replace created successfully!\n";
+		if (inputFile && outputFile)
 		{
-			buffer << input_file.rdbuf();
-			buffer_str = buffer.str();
+			buffer << inputFile.rdbuf();
+			bufferStr = buffer.str();
 			int pos = 0;
-			int target_len = strlen(argv[2]);
-			int replace_len = strlen(argv[3]);
-			while ((pos = buffer_str.find(argv[2], pos)) != (int)std::string::npos)
+			int targetLen = strlen(argv[2]);
+			int replaceLen = strlen(argv[3]);
+			while ((pos = bufferStr.find(argv[2], pos)) != (int)std::string::npos)
 			{
-				buffer_str = ft_replace(buffer_str, pos, target_len, argv[3]);
-				pos += replace_len;
+				bufferStr = ft_replace(bufferStr, pos, targetLen, argv[3]);
+				pos += replaceLen;
 			}
-			output_file << buffer_str << "\n";
+			outputFile << bufferStr << "\n";
 		}
 		else
 			std::cout << "Cannot read input file\n";
-		input_file.close();
-		output_file.close();
+		inputFile.close();
+		outputFile.close();
 	}
 	else
 		std::cout << "Number of arguments must be 3.\n";
