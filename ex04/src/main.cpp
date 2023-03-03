@@ -6,7 +6,7 @@
 /*   By: mochan <mochan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 16:43:57 by mochan            #+#    #+#             */
-/*   Updated: 2023/03/02 19:54:19 by mochan           ###   ########.fr       */
+/*   Updated: 2023/03/03 20:43:30 by mochan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,20 @@ int	main(int argc, char **argv)
 		std::ifstream		input_file;
 		std::stringstream	buffer;
 		std::string			buffer_str;
-		std::ofstream		output_file(output_file_name);
+		std::ofstream		output_file;
 		
 		if (strlen(argv[2]) == 0)
 		{
 			std::cout << "Error: string s1 to replace is empty.\n";
 			return (0);
 		}
-		input_file.open(input_file_name);
+		input_file.open(input_file_name.c_str());
 		if (!input_file)
 		{
 			std::cout << "Error: Input file could not be opened.\n";
 			return (0);
 		}
+		output_file.open(output_file_name.c_str());
 		if (!output_file)
 		{
 			std::cout << "Error in creating : " + input_file_name << ".replace\n";
